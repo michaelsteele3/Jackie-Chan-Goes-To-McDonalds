@@ -1,0 +1,817 @@
+@echo off
+cd "Jackie Chan Goes to McDonald's"
+:mainmenu
+cls
+Title Jackie Chan Goes to McDonald's (BETA)                                      
+type jcgtmt.txt
+echo.
+echo Select an option:
+echo.
+echo 1) New Game
+echo 2) Load Game
+echo. You started the game. Good for you. >> "Achievements\Start The Game.txt"
+
+set /p selectoption=Type Number of your option here: 
+if %selectoption%==1 goto gamestart
+if %selectoption%==2 goto loadgame
+
+:loadgame
+echo Choose a chapter:
+echo.
+echo 1) Beginning
+echo.
+echo 2) Arrival at McDonald's
+echo.
+echo 3) Boss Battle 1
+echo.
+echo 4) Order Food
+echo.
+echo 5) To the next McDonalds!
+echo.
+echo 6) The 2nd Mcdonald's
+echo.
+echo 7) The Final Battle
+
+set /p choosechapter=Type Answer Here: 
+
+if %choosechapter%==1 goto gamestart
+
+if %choosechapter%==2 goto AtMcdonalds
+
+if %choosechapter%==3 goto timetoorder
+
+if %choosechapter%==4 goto orderyourfood
+
+if %choosechapter%==5 goto leavethestore
+
+if %choosechapter%==6 goto mcdonalds2
+
+if %choosechapter%==7 goto incomingboss
+
+:gameover
+cls
+echo GAME OVER YEAAAAAAH!
+type gameover.txt
+start "" "game-over-yeah.mp3"
+echo.
+echo Press any key to play again :)
+pause
+echo. You lost the game. I have no clue why it's considered an achievement. >> "Achievements\Game Over!.txt"
+goto mainmenu
+
+:victory
+cls
+echo. You beat Jackie Chan Goes to McDonald's! YAY! >> "Achievements\You Win!.txt"
+echo WOOOOOO YOU WIN! THX 4 PLAYING SKRUBZ!
+choice /C X /T 2 /D X > nul
+echo No Jackie Chans were harmed in the making of this game
+:gamestart
+
+cls
+
+echo One day on a spring evening 200 miles from Dick Cheney's house, Jackie Chan was practicing staring at people. He decided he was hungry. It was 5:30, and he wanted some McDonald's!
+
+echo How will Jackie Chan go to the McDonald's?
+
+echo 1) Take a car
+echo.
+echo 2) Run on the highway
+echo.
+echo 3) Jackie Chan teleporting power!
+echo.
+echo 4) Don't go to McDonald's and just stay home and eat leftovers
+
+set /p tomcdonalds=Type Answer Here: 
+
+if %tomcdonalds%==1 goto takeacar
+if %tomcdonalds%==2 goto ohno
+if %tomcdonalds%==3 goto teleport
+if %tomcdonalds%==4 goto dontgo
+if %tomcdonalds%==cheats goto cheatmenu
+
+:cheatmenu
+cls
+echo --------------------------
+echo Welcome to the Cheat Menu!
+echo -------------------------- 
+echo Here you can type a code and get help! It makes it easier to go through the huge struggle of going to a fast food restaraunt!
+
+set /p cheatcode=Enter Cheat Code Here:
+if %cheatcode%==infinitehealth call JCGTMgodmode.bat
+pause
+
+:dontgo
+cls
+echo Jackie Chan decides not to go to McDonald's and stays home to eat some left overs.
+echo.
+echo You have missed the McDonald's experience. [-1 HAPPINESS]
+pause
+echo. You basically ruined the purpose of the game. >> "Achievements\Too Lazy.txt"
+goto gameover
+
+:takeacar
+cls
+echo Jackie Chan pushes the pedal down all the way to get to the McDonald's as fast as possible.
+echo.
+echo Eventually he is forced to stop at a railroad crossing and the railroad signal is dinging. What will Jackie Chan do?
+echo.
+echo 1) FLOOR IT!
+echo.
+echo 2) Run out into the middle of the train tracks and make snow angels :)
+echo.
+echo 3) Wait for the train to go by
+
+set /p traintracks=Type Answer Here: 
+if %traintracks%==1 goto floorit
+if %traintracks%==2 goto snowangels
+if %traintracks%==3 goto waitfortrain
+
+:floorit
+cls
+echo "JACKIE CHAN GOTTA GO FAST!" Jackie Chan screams as he slams on the gas pedal.
+echo.
+echo However, his tire gets jammed on the railroad and he can't move. The train comes and hits his car [-100 HP]
+pause
+goto gameover
+
+:waitfortrain
+cls
+echo After 20 minutes, the train finally passes. Jackie Chan floors it and runs through buildings to get to the McDonald's faster. Eventually he makes it.
+pause
+goto AtMcdonalds
+
+:snowangels
+cls
+echo "Jackie Chan make good snow angels!" Jackie Chan says as he get's out of his car and dives onto the train tracks
+echo ...
+echo Just as the train comes. The train hits Jackie Chan before he can land on the tracks [-100 HP]
+echo.
+echo (by the way, if you payed attention it's sping you idiot)
+pause
+echo. You forgot it's spring. GG >> "Achievements\I Don't Have a Calendar.txt"
+goto gameover
+
+:ohno
+cls
+echo Jackie Chan runs into traffic and gets hit by a truck. [-100 HP] The end. (ur bad)
+pause
+goto gameover
+
+:teleport
+cls
+echo Jackie chan uses his supreme Jackie teleport power of Chanie. [+5 SWAG POINTS] He teleprots to the front entrance of the McDonald's.
+pause
+goto AtMcdonalds
+
+
+:AtMcdonalds
+cls
+echo Jackie Chan walks into the McDonalds and finds out there are around 13 fat people waiting in line. What will Jackie Chan do?
+echo 1. Wait in line patiently
+echo 2. Cut in line
+echo 3. Use Jackie Chan kick and beat them all up!
+
+set /p getinline=Type Answer Here: 
+if %getinline%==1 goto waitinline
+if %getinline%==2 goto cutinline
+if %getinline%==3 goto beatthemup
+echo. You made it to the McDonald's! >> "Achievements\You got there!.txt"
+:cutinline
+cls
+echo Jackie Chan attempts to walk infront of the person ordering, but is stopped by an employee who says: "Sir, you can't cut in line"
+echo.
+echo What will Jackie Chan do?
+echo.
+echo 1) Grab the nearest tray and smack the employee's teeth out with it
+echo.
+echo 2) Go to the back of the line
+
+set /p employeeresponse=Type Answer Here: 
+if %employeeresponse%==1 goto smackemployee
+if %employeeresponse%==2 goto movetothebackoftheline
+echo. >> "Achievements\Impatience.txt"
+:movetothebackoftheline
+cls
+echo Jackie Chan walks to the back of the line hanging his head
+pause
+goto waitinline
+
+:smackemployee
+cls
+echo Jackie Chan grabs the tray from a table and creams the employye across the face with it. The employee falls to the ground. "Enjoy your studio apartment" Says Jackie Chan.
+pause
+goto timetoorder
+:beatthemup
+cls
+echo Jackie Chan dives into each and everyone of the fat people and punches them. However, unfortanuatley for Jackie Chan, one of them has a heart attack and falls over and lands on Jackie Chan.
+pause
+goto gameover
+
+:waitinline
+cls
+echo Jackie Chan is now very hungry and can't wait much longer. Jackie Chan wants food.
+echo.
+echo What will Jackie Chan do while waiting in line?
+echo.
+echo 1) Ask to cut in line
+echo.
+echo 2) Stand and wait like a sweetheart :)
+echo.
+echo 3) Cry
+
+set /p waitinginline=Type Answer Here: 
+if %waitinginline%==1 goto asktocut
+if %waitinginline%==2 goto morewaiting
+if %waitinginline%==3 goto cry
+
+:cry
+echo "WHAAAAAAA"
+echo.
+echo ... well that didn't do anything. Why don't you try again?
+pause
+echo. That was pointless >> "Achievements\Crying Doesn't solve your problems.txt"
+goto waitinline
+
+:asktocut
+cls
+echo The fat kid doesn't even turn to look at him and his only response is a loud claping fart. His whole body quivers and looks like an ocean wave going back in forth when he farts.
+pause
+goto morewaiting
+
+:morewaiting
+cls
+echo As Jackie Chan Waits for a long time, his stomach really growls and it's - HEY! THOSE FAT KIDS ARE CUTTING IN LINE!
+echo What will jackie chan do now?
+echo 1) Grab the nearest table and smash it on the fat kid's head
+echo 2) Kick the kid in the nuts
+echo 3) Give up and go home to eat
+
+set /p dealingwithfatkid=Type Answer Here 
+if %dealingwithfatkid%==1 goto smashtable
+if %dealingwithfatkid%==2 goto kickkid
+if %dealingwithfatkid%==3 goto giveup
+
+:kickkid
+cls
+echo Jackie Chan kicks the kid with his ultra swaggy Jackie Chan kick move. However, jackie chan's foot get's stuck and the fat kid falls onto jackie chan and crushes him.
+pause
+goto gameover
+
+:giveup
+cls
+echo Jackie chan is upset and gives up. "Why can't Jackie Chan eat at McDonald's when Jackie Chan want to eat at McDonald's?" Jackie thinks as he walks out the store and goes home to eat some left overs. You have failed to eat at McDonald's
+pause
+goto gameover
+
+:smashtable
+cls
+echo Jackie Chan becomes angry and grabs the nearest metal table and breaks it in half off the fat kid's head. The kid shakes like a water balloon and then melts into the ground
+pause
+goto nextinline
+
+
+:nextinline
+cls
+echo Jackie Chan is now waiting for the last fat kid. to order his meal.
+echo The fat kid is ordering "I'll have 4 extra large buckets of salt, 200 bic macs, and a DIET COKE"
+echo.
+echo When Jackie Chan hears him say "Diet Coke" He...
+
+echo 1) Just wait for him to finish ordering
+echo.
+echo 2) Grab the nearest Diet Coke bottle from a table and smash it off of the fat kid's skull
+echo.
+echo 3) Give up and go home
+
+
+set /p dietcoke=Type Answer Here 
+if %dietcoke%==1 goto waitfororder
+if %dietcoke%==2 goto bottle
+if %dietcoke%==3 goto giveup
+
+:waitfororder
+cls
+echo "... and 5 wedding cakes, 2000 orders of extra large fries, 2 more big macs, a bucket of bull fat, and a.."
+echo.
+echo Jackie Chan falls to the ground and dies of starvation
+pause
+goto gameover
+
+:bottle
+cls
+echo Jackie Chan grabs the nearest coke bottle and breaks it into pieces on the fat kid's head. He rolls away crying
+echo and now for the big moment!
+pause
+echo. You gave him his diet coke. >> "Achievements\...With a died coke please".txt"
+goto :timetoorder
+
+:timetoorder
+cls
+echo At Last! It is time for Jackie Chan to o-
+echo BOOM!
+echo.
+choice /C X /T 2 /D X > nul
+echo BOOM!
+choice /C X /T 2 /D X > nul
+echo CRASH
+echo.
+choice /C X /T 2 /D X > nul
+echo BOSS BATTLE ALERT!
+choice /C X /T 1 /D X > nul
+echo OH MY GOD! IT'S HONEY BOO BOO! SHE JUST CRASHED THROUGH THE FRONT ENTRANCE!
+pause
+cls
+echo And worse... SHE JUST SMACKED JACKIE OUT OF LINE WITH HER STOMACH FAT AND JACKIE CHAN WENT FLYING [-4 HP]! SHE JUST CUT IN FRONT OF JACKIE CHAN! WHAT IS JACKIE CHAN GOING TO DO?
+echo.
+echo 1) Tackle dat fat 10 year old idiot!
+echo.
+echo 2) Get up and fight
+echo.
+echo 3) Give up and leave
+
+
+set /p decide=Type Answer Here: 
+if %decide%==1 goto tackle
+if %decide%==2 goto beginepicfight
+if %decide%==3 goto leaves
+
+:tackle
+cls
+echo Jackie Chan dives directly at Honey Boo Boo, however, upon impact, she just absorbs him like a sponge through her fat. Jackie Chan was never heard from again.
+pause
+goto gameover
+
+:leaves
+cls
+echo "You know what?" Jackie Chan says to himself. "I remember old days when you walk into McDonald's and not see 13 fat people melting and wind blowing farts and 500 pound 10 year olds knocking you out of line."
+echo Jackie Chan leaves to go home and eat some leftovers
+pause
+goto gameover
+
+:beginepicfight
+cls
+echo Jackie Chan gets up and raises his fists, determined to be the next person to order. Honey Boo Boo snorts like a big and inks like a squid all over the floor.
+echo What will Jackie Chan do?
+echo.
+echo 1) EPIC JACKIE CHAN NECK TWIST
+echo.
+echo 2) Throw Sum S'ghettie n butter into the pool of frying grease
+echo.
+echo 3) Grab a tray and smack her across the face with it
+echo.
+echo 4) Kick her
+echo.
+echo 5) Eat some ham in front of her
+
+set /p attackhbb=Type Answer Here: 
+if %attackhbb%==1 goto jackiechannecktwist
+if %attackhbb%==2 goto sgettynbutter
+if %attackhbb%==3 goto traysmack2
+if %attackhbb%==4 goto kickher
+if %attackhbb%==5 goto eatham
+
+:jackiechannecktwist
+cls
+echo Jackie Chan jumps towards Honey Boo Boo's face with his arms stretched out.
+echo.
+echo However, when Jackie Chan is just about to reach her face, she burps up some stomach acid and it gets all over him. Jackie Chan disintegrates.
+pause
+goto gameover
+
+:traysmack2
+cls
+echo Jackie Chan jumps over Honey Boo Boo while holding a tray of food and hits her in the back of the head. However, when he lands behind her, she lets out a full 40 second 900 miles per hour wind fart. It is so bad that it rips Jackie Chan's skin right off so he's a bare skeleton, and the back wall of the McDonald's flew away.
+echo.
+pause
+goto gameover
+
+:kickher
+cls
+echo Jackie Chan jumps over Honey Boo Boo and is about to do a swag kick, but Honey Boo Boo sucked in a huge fart, and it sucked up Jackie Chan. She then released it all, and Jackie Chan was launched at 200 Miles Per Second into a pile of bricks
+pause
+goto gameover
+
+:eatham
+cls
+echo Jackie Chan reaches into his back pocket and pulls out some ham, which get's Honey Boo Boo's attention, since she has a pig heart. Jackie Slowly eats it, and honey boo boo get's terrified since she's watching someone eat her kind. She bounces all over the place while snorting like a pig trying to get out. By the time she gets out, the entire roof collapses onto Jackie Chan.
+pause
+goto gameover
+
+:sgettynbutter
+cls
+echo Jackie Chan grabs some Spaghetti and coats it with 200 lbs. of butter. Honey Boo Boo sees it and squeals and dives for it. She crashes right into the frying grease container and it spills on her! You win!
+pause
+echo. You beat Honey Boo Boo! >> "Achievements\Beat Honey Boo Boo.txt"
+goto orderyourfood
+
+:orderyourfood
+cls
+echo FINALLY! FOR REAL! ORDER YOUR FOOD!
+echo.
+echo What will Jackie Chan order?
+echo.
+echo 1) Big Mac with some fries
+echo.
+echo 2) Jackie Chan Happy Meal of Jackie Chan! (With Jackie Chan Toy)
+echo.
+echo 3) A Salad.
+set /p yourorder=Type Answer Here: 
+if %yourorder%==1 goto sorrywereclosed
+if %yourorder%==2 goto sorrywereclosed
+if %yourorder%==3 goto sorrywereclosed
+
+:sorrywereclosed
+cls
+echo "I'm sorry sir, but we closed 2 minutes ago." The register guy says.
+echo.
+echo What will Jackie Chan do?
+echo.
+echo 1) Scream so loud that it breaks the sound barrier as well as the laws of physics.
+echo.
+echo 2) Rage and whack the guy with a plank of wood and find another McDonald's
+echo.
+echo 3) Yell some words that even 12 year old COD fanboys would never dare to say and go home (Throw a fit)
+
+set /p jackiechanreact=Type Answer Here: 
+if %jackiechanreact%==1 goto byebyelawsofphysics
+if %jackiechanreact%==2 goto nevergiveup
+if %jackiechanreact%==3 goto throwafit
+
+:byebyelawsofphysics
+cls
+echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG" Yells Jackie Chan. However, he never was able to finish screaming. This is due to the fact that because he screamed so loud, he broke the sound barrior for the loudest possible sound in existance. Due to this, he broke the laws of known physics as well as the lawns of unknown physics. Thus he litterally made the enite universe Implode on itselfso horribly that the density of the universe was even larger than infinity.
+echo. In other words, you died.
+pause
+echo. I have no idea how you can go from going to a McDonald's to making the entire universe implode on itself. >> "Achievements\Destroy the Universe.txt"
+goto gameover
+
+:throwafit
+cls
+echo "JACKIE CHAN WANT MCDONALDS NOW!" Jackie Chan yells as he throws tables and chairs around.
+echo.
+echo "Sir, please stop! We already powered down the machines!"
+echo.
+echo What will Jackie Chan say?
+echo.
+echo 1) "Jackie Chan use machine himself!"
+echo.
+echo 2) "Turn machine on!"
+echo.
+echo 3) Say nothing and leave the store to find another McDonald's
+
+set /p jackiechansays=Type Answer Here: 
+if %jackiechansays%==1 goto makeityourself
+if %jackiechansays%==2 goto asktoturniton
+if %jackiechansays%==3 goto leavethestore
+
+:makeityourself
+cls
+echo Jackie Chan jumps behind the counter and begins smashing\
+echo things together in hopes of making some food. He ends up mixing gasoline and frying grease together and dips fries in it for 3 minutes, and eats them.
+echo.
+echo "Jackie Chan feel sick!" He says "Jackie Chan eat fire to feel better!"
+echo.
+echo So Jackie Chan lit a match and put it in his mouth.
+pause
+goto gameover
+
+
+:asktoturniton
+cls
+echo "Jackie Chan wants to have you turn it back on!" Jackie Chan says. 
+echo.
+echo "Sir, the chefs already went home"
+echo.
+echo Jackie Chan dies from starvation. ded.
+pause
+goto gameover
+
+
+:leavethestore
+cls
+echo Jackie Chan runs out the store. He notices his car isn't there. What will Jackie Chan do now?
+echo.
+echo 1) Use Jackie Chan sprint!
+echo.
+echo 2) Use Jackie Chan teleporting power!
+echo.
+echo 3) Steal a car :)
+echo.
+set /p gettomcdonalds2=Type Answer Here:
+if %gettomcdonalds2%==1 goto cantsprint
+if %gettomcdonalds2%==2 goto jackiechanteleport2
+if %gettomcdonalds2%==3 goto stealacar
+
+:cantsprint
+cls
+echo Jackie Chan prepares to run, however he has a 1/3 chance of getting hit by a car if he does. Continue?
+echo.
+echo 1) Yes
+echo.
+echo 2) No
+set /p sprintorno=Type Answer Here: 
+if %sprintorno%==1 goto riskit
+if %sprintorno%==2 goto leavethestore
+
+:riskit
+set /A randomnumber=%RANDOM% %% 2+1
+
+if %randomnumber%==2 goto getranoverm8
+if %randomnumber%==1 goto success
+if %randomnumber%==0 goto success
+
+:success
+cls
+echo Jackie Chan made it!
+pause
+goto mcdonalds2
+
+:getranoverm8
+cls
+echo BEEEEP BEEEEEP! Jackie Chan gets ran over by a car.
+pause
+goto gameover
+
+:useteleportpower2
+cls
+echo Not enough Power Points! [PP 1/5]]
+pause
+goto leavethestore
+
+:stealacar
+cls
+echo "Jackie Chan play GTA 5, Jackie Chan know how to steal car" Jackie Chan says to himself.
+echo.
+echo There are two cars in sight. Which one will Jackie Chan take a car from?
+echo.
+echo 1) That guy who looks angry and is 1 foot taller than Jackie Chan
+echo.
+echo 2) That old lady who just dropped her groceries and just broke her hip
+
+set /p takecarfrom=Type Answer Here
+if %takecarfrom%==2 goto takefromoldlady
+if %takecarfrom%==1 goto takefrommadguy
+
+:takefrommadguy
+echo Jackie Chan runs over to the huge guy, and throws a giant Jackie Chan swag kick to the back of his head. The man falls down, and Jackie Chan steals his keys and dives into the car and closes the door. However, all of a sudden, the giant man's arm breaks through the door window and grabs Jackie Chan by the face, and throws him outside. Jackie Chan lands out in the middle of the highway and gets struck by a truck.
+pause
+goto gameover
+
+:takefromoldlady
+cls
+echo Jackie Chan runs behind the lady and attempts to open the car door, but the old lady gets up and smacks him across the face.
+echo.
+echo What will Jackie Chan do next?
+echo.
+echo 1) Leave and go home in shame.
+echo.
+echo 2) Grab the old lady and slam the car door in her face and take the car and drive away.
+
+set /p oldlady=Type Answer Here
+if %oldlady%==1 goto gohomem8
+if %oldlady%==2 goto beajerk
+
+:gohomem8
+cls
+echo Jackie Chan realized he just tried to steal a car from an 80 year old woman who just broke her hip. He walks home in shame and eats some leftovers.
+pause
+goto gameover
+
+:beajerk
+cls
+echo "JACKIE CHAN SMASH!" Jackie Chan yells and picks up the old lady by the head and slams the car door on her face.
+echo.
+echo Jackie Chan jumps into her car and drives away.
+echo Jackie Chan drives for an hour, and it is now 7:45. 
+pause
+goto mcdonalds2
+
+:mcdonalds2
+cls
+echo He sees a McDonald's, AND IT HAS A PLAYPLACE! JACKIE CHAN LOVES MCDONALDS THAT HAVE PLAYPLACES!
+echo.
+echo He especially loves going around the tubes and watching the children for hours.
+echo.
+echo Anyway, Jackie Chan jumps through the window and sees it's a child's birthday party. What does jackie chan do?
+echo.
+echo 1) Go to the counter and order
+echo.
+echo 2) Walk over and try to make friends with the chidren at the party
+echo.
+echo 3) Go to the PLAYPLACE
+
+set /p mcdonalds2activity=Type Answer Here
+if %mcdonalds2activity%==1 goto ordersumfood
+if %mcdonalds2activity%==2 goto makefriends
+if %mcdonalds2activity%==3 goto walktoplayplace
+
+:ordersumfood
+cls
+echo Jackie Chan walks over to the counter, only to discover that nobody was there, as the employees were entertaining the children.
+pause
+goto talktoemployee
+:makefriends
+cls
+echo Jackie Chan walks over to the children and gives a giant smile and stares directly at them. "Wanna be friends?" Jackie Chan asks.
+echo.
+echo "NO! YOU'RE A STUPID POO POO HEAD" A fat kid screams and kicks Jackie Chan in the ankle
+echo.
+echo "But..." Jackie Chan starts
+echo.
+echo "DONT YOU HAVE A PLANE TO FLY INTO A NAVAL SHIP?"
+echo.
+echo When Jackie Chan hears this, he...
+echo.
+echo 1) Run to the nearest airport and gets his Golden Luxor
+echo.
+echo 2) Ignore him
+echo.
+echo 3) Yell "WELL DONT YOU HAVE A CALL OF DUTY MATCH TO GET BACK TO, YOU TALKING DOG WHISTLE?"
+
+set /p dealingwithfatkid3=Type Answer Here: 
+if %dealingwithfatkid3%==1 goto airport
+if %dealingwithfatkid3%==2 goto ignoremeanie
+if %dealingwithfatkid3%==3 goto goto swagcomeback
+
+:airport
+cls
+echo "Jackie Chan go to airport!" Jackie Chan said to himself and ran to the airport. He found his golden plane, and got into it. He flew back towards the McDonald's and sees the fat kid who made fun of him.
+echo.
+echo *CRAAASH* Jackie Chan crashes right into the fat kid.
+echo.
+echo "OH! Jackie Chan sorry! Jackie Chan thought fat kid was a naval ship! Haha!"
+echo.
+echo The entire resaraunt then blows up.
+pause
+goto gameover
+
+:ignoremeanie
+cls
+echo Jackie Chan walks away and looks for something else to do.
+pause
+goto mcdonalds2
+
+:swagcomeback
+cls
+echo. "DONT YOU HAVE A CALL OF DUTY GAME TO GET BACK TO, YOU TALKING DOG WHISTLE?"
+echo.
+echo The fat kid says nothing and kicks Jackie Chan in the nuts and runs away crying. [-10000000 Dignity]
+echo.
+echo Jackie Chan becomes depressed because he just screamed like a 6 year old British Girl. He leaves the restaurant.
+pause
+goto gameover
+
+:walktoplayplace
+cls
+echo Jackie Chan walks over to the Playplace and climbs into the tube and sees there are many children there. He slowly climbs to the top and is almost to the top floor, when suddenly a fat, whiny, snot nosed kid bounces in front of him.
+echo.
+echo "HEY! IM THE BIRTHDAY BOY! IM 7 AND THAT MAKES ME KING OF THIS CASTLE" He yells and Pushes Jackie Chan down to the ground.
+echo.
+echo What will Jackie Chan do next?
+echo.
+echo 1) Get revenge by unscrewing the bolts of the Playplace tubes
+echo.
+echo 2) Ignore him. He's just a brat and wants attention like Justin Bieber.
+echo.
+echo 3) Stare at the kid for 8 hours with a big creepy smile :)
+
+set /p dealingwithfatkid2=Type Answer Here: 
+if %dealingwithfatkid2%==1 goto unscrew
+if %dealingwithfatkid2%==2 goto ignore
+if %dealingwithfatkid2%==3 goto stareathim
+
+:unscrew
+cls
+echo Jakie Chan is mad. He exits the Playplace and begins unscrewing all the bolts of the tubes and pillars. When he unscrews the 10-11th bolt, the entire thing collapses and crushes everyone inside.
+echo.
+echo Jackie Chan walks back over to the main entrance
+pause
+goto mcdonalds2
+
+:ignore
+cls
+echo Jackie Chan just slides down the slide and goes back to the main entrance.
+pause
+goto mcdonalds2
+
+
+:stareathim
+cls
+echo "Jackie Chan loves little boys :)" Jackie Chan says as he leans in and stares at the kid
+echo.
+echo "MOOOOOOOOOOOM"
+echo.
+echo "Jackie Chan is your mommy :)"
+echo All of a sudden the police burst through the door and arrest Jackie Chan. Jackie Chan never got to eat at mcdonalds that night.
+pause
+echo. You stared at a child. Creep. >> "Achievements\Creeper.txt"
+goto gameover
+
+
+:talktoemployee
+cls
+echo "Mr Highschool dropout? Can Jackie Chan order food?" Jackie Chan asks
+echo. 
+echo "Im sorry sir, but this McDonald's is closed due to a private party."
+echo.
+echo What will Jackie Chan do next?
+echo.
+echo 1) Shove the employee
+echo.
+echo 2) Give up and go home.
+
+set /p yayornay=Typer Answer Here
+
+if %yayornay%==1 goto shoveem
+if %yayornay%==2 goto byebye
+
+
+:shoveem
+cls
+echo "JACKIE CHAN PUSH!" Jackie Chan yells as he shoves the employee into a table.
+echo.
+pause
+goto incomingboss
+
+:incomingboss
+cls
+echo Jackie Chan turns around and sees there is a tray of 2 extra large fries, a quarter pounder, and *GASP* A Jackie Happy Meal with a Jackie Chan toy!
+echo.
+echo He runs over to the counter...
+choice /C X /T 2 /D X > nul
+echo *CRAAASSSHHH*
+choice /C X /T 2 /D X > nul
+echo. *Gargling sounds* "Heeeeeey kiiiiiids" Jackie Chan turns around to see a 1200+ Pound guy in a Ronald McDonald outfit. He's so fat the shirt looks like a necklace. He burps out a half-eaten chicken leg. "You going to eat that?"
+choice /C X /T 2 /D X > nul
+echo. "OH MY GOD JACKIE CHAAAAAN HURT EMPLOYEE! ME FAT MANAGER! JACKIE CHAN BANNED FROM ALL MCDONALDS!"
+echo.
+choice /C X /T 2 /D X > nul
+echo What will Jackie Chan do Next?
+echo.
+echo 1) Leave and go to Buger King instead
+echo.
+echo 2) Ultimate Boss Battle! For McDonald's!
+echo.
+echo 3) Point and laugh at the 1200 pound lard.
+
+set /p destiny=Type Answer here: 
+if %destiny%==1 goto burgerking
+if %destiny%==2 goto finalshowdown
+if %destiny%==3 goto makefunof
+
+:makefunof
+cls
+echo "JACKIE CHAN MAKE FUN OF WALKING LAUNCHPAD! HAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHA"
+echo.
+echo Suddenly, the manager jumps and lands on Jackie Chan, crushing him instantly, and the entire building collapses.
+pause
+goto gameover
+
+:burgerking
+cls
+echo "Why does every McDonald's have 1000 pound jerks :(" Jackie Chan says and walks out the door.
+pause
+goto gameover
+
+:finalshowdown
+cls
+echo "JACKIE CHAN HAD ENOUGH" Jackie Chan...
+echo.
+echo 1) Dive for the food tray to eat the food
+echo.
+echo 2) Asks "Show Jackie Chan magic trick!"
+echo.
+echo 3) Grab the nearest needle and poke the fat guy
+
+set /p attack1=Type Answer Here 
+
+if %attack1%==1 goto diveforfood
+if %attack1%==2 goto seemagic
+if %attack1%==3 goto pokelol
+
+:diveforfood
+cls
+echo Jackie Chan immediatley dives for the tray of food. However, the fat manager falls and lands on him and crushes him
+pause
+goto gameover
+
+
+:seemagic
+cls
+echo "Ooooooookaaaay" The manager just farts for 20 minutes straight, so much that it blows a hole through his pants. Then he reaches into his back folds and pulls out a goo covered ballon. He tries to make it into a dog, but it just pops.
+echo.
+echo "YOU SUCK" Jackie Chan yells.
+echo.
+echo The fat manager burps up some stomach acid and it disintegrates Jackie Chan
+pause
+goto gameover
+
+:pokelol
+cls
+echo Jackie Chan grabs the nearest pin and pokes the fat manager with it. He pops instantly.
+echo.
+echo Jackie Chan picks up the food tray.
+echo.
+echo HE EATS IT! YOU WIN!
+pause
+goto victory
